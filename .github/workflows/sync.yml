@@ -20,4 +20,4 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git commit -m "Initial sync without history"
-          git push --force https://Sonal-888:$HF_TOKEN@huggingface.co/spaces/Sonal-888/my-video-studio master
+          git push --force https://Sonal-888:$HF_TOKEN@huggingface.co/spaces/Sonal-888/my-video-studio master:main
