@@ -9,6 +9,7 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV CI=false
+ENV OPENAI_API_KEY="dummy-key-to-pass-build"
 
 RUN npm run build
 
