@@ -1,5 +1,4 @@
-name: Sync to Hugging Face Hub
-
+name: Sync to Hugging Face hub
 on:
   push:
     branches: [master]
@@ -8,29 +7,17 @@ on:
 jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Git LFS
-        run: |
-          git lfs install
-          git lfs track "*.png"
-          git lfs track "*.jpg"
-          git lfs track "*.jpeg"
-          git lfs track "*.gif"
-          git lfs track "*.webp"
-          git lfs track "*.ico"
-          git add .gitattributes
-
-      - name: Push to Hugging Face
+      - uses: actions/checkout@v4
+      - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git config --global credential.helper store
-          echo "https://Sonal-888:$HF_TOKEN@huggingface.co" > ~/.git-credentials
-          git remote add hf https://huggingface.co/spaces/Sonal-888/my-video-studio || true
-          GIT_LFS_SKIP_SMUDGE=1 git push hf master --force
+          rm -rf .git
+          git init
+          git branch -M master
+          git add .
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git commit -m "Initial sync without history"
+          git push --force https://Sonal-888:$HF_TOKEN@huggingface.co/spaces/Sonal-888/my-video-studio master
