@@ -1,3 +1,11 @@
+---
+title: My Video Studio
+emoji: 🚀
+colorFrom: blue
+colorTo: red
+sdk: docker
+pinned: false
+---
 # <img src="./readme-images/sora-2-playground.png" alt="Project Logo" width="50" height="50" style="vertical-align: middle; margin-right: 8px;"> Sora 2 Playground
 
 A web-based playground to interact with OpenAI's Sora 2 models for creating videos.
